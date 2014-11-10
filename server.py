@@ -19,5 +19,5 @@ def main():
 	print "Quit the Server with Contor-C"
 	tornado.ioloop.IOLoop.instance().start()
 
-if_name_ == "_main_":
-	main()
+if __name__ == "__main__":
+        main()
