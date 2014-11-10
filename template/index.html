@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="../static/img/icon.png">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{{ static_url("css/bootstrap.min.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ static_url("css/index.css") }}">
+
+
+</head>
+<body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <img src="img/logo.png" width="200" height="50">
+          </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Home</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+            <li><a href="javascript:void(0);" id="team">Team</a></li>
+            <li><a href="javascript:void(0);" id="contact">Contact</a></li>
+            <li><a href="javascript:void(0);" id="login">Login</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <!-- bootstrap model -->
+    <div class="modal fade" id="loginModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- form here -->
+                <form class="form-horizontal" role="form" action="{SV::U('Login/check')}" method="POST">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Welcome to WorkHub !</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon glyphicon glyphicon-user"></span>
+                                <input type="text" class="form-control" id="inputUsername" name="username" placeholder="Username">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon glyphicon glyphicon-pencil"></span>
+                                <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <p id="registerEnter">New User？</p>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- bootstrap model -->
+    <div class="modal fade" id="registerModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- form here -->
+                <form class="form-horizontal" role="form" action="{SV::U('Login/register')}" method="POST">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Register to WorkHub !</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon glyphicon glyphicon-user"></span>
+                                <input type="text" class="form-control" id="inputUsername" name="username" placeholder="Username">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon glyphicon glyphicon-pencil"></span>
+                                <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon glyphicon glyphicon-pencil"></span>
+                                <input type="password" class="form-control" id="inputPasswordAgain" name="passwordAgain" placeholder="Please Input Password Again">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Done</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="row home">
+      <div class="col-lg-6 paint">
+      </div>
+      <div class="col-lg-6 text">
+        <div>
+          <h2>测试一下，哈哈哈，这是题目</h2>
+          <p>测试一下，哈哈哈，哦哦，测试一下，哈哈哈，哦哦，测试一下，哈哈哈，哦哦。测试一下，哈哈哈，哦哦测试一下，哈哈哈，哦哦测试一下，哈哈哈，哦哦测试一下，哈哈哈，哦哦测试一下，哈哈哈，哦哦测试一下，哈哈哈，哦哦测试一下，哈哈哈，哦哦测试一下，哈哈哈，哦哦测试一下，哈哈哈，哦哦测试一下，哈哈哈，哦哦测试一下，哈哈哈，哦哦测试一下，哈哈哈，哦哦测试一下，哈哈哈，哦哦。</p>
+        </div>
+      </div>
+    </div>
+    <div class="row team">
+      <a name="Team"></a>
+      <h1>AMAZING TEAM</h1>
+      <p>Take a closer look into our amazing team. We won’t bite.</p>
+      <div class="col-lg-3 person">
+        <img src="./img/p1.jpg" width="290" height="290">
+        <h3>WorkHub</h3>
+        <p class="one">资深开发工程师</p>
+        <p class="two">生命就是吃两碗米饭，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈。</p>
+      </div>
+      <div class="col-lg-3 person">
+        <img src="./img/p3.jpg" width="290" height="290">
+        <h3>WorkHub</h3>
+        <p class="one">资深开发工程师</p>
+        <p class="two">生命就是吃两碗米饭，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈。</p>
+      </div>
+      <div class="col-lg-3 person">
+        <img src="./img/p2.jpg" width="290" height="290">
+        <h3>WorkHub</h3>
+        <p class="one">资深开发工程师</p>
+        <p class="two">生命就是吃两碗米饭，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈。</p>
+      </div>
+      <div class="col-lg-3 person">
+        <img src="./img/p2.jpg" width="290" height="290">
+        <h3>WorkHub</h3>
+        <p class="one">资深开发工程师</p>
+        <p class="two">生命就是吃两碗米饭，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈，哈哈哈。</p>
+      </div>
+    </div>
+
+    <div class="row contact">
+        <a name="contact"></a>
+        <h1>Contact Us</h1>
+        <p>DON’T BE SHY. SAY HELLO!</p>
+        <div class="col-lg-3 reach">
+            <img src="{{ static_url("img/address.png") }}">
+            <h3>锦业一路C座</h3>
+        </div>
+        <div class="col-lg-3 reach">
+            <img src="{{ static_url("img/phone.png") }}">
+            <h3>123456789</h3>
+        </div>
+        <div class="col-lg-3 reach">
+            <img src="{{ static_url("img/mail.png") }}">
+            <h3>abc@cn.ibm.com</h3>
+        </div>
+        <div class="col-lg-3 reach">
+            <img src="{{ static_url("img/social.png") }}">
+            <h3>weibo.com/abc</h3>
+        </div>
+    </div>
+    <div class="row footer">
+        <p>Copyright © 2014 NoExcuse All Rights Reserved</p>
+    </div>
+
+   
+
+
+<script type="text/javascript" src="{{ static_url("js/jquery.1.11.1.min.js") }}"></script>
+<script type="text/javascript" src="{{static_url("js/bootstrap.min.js")}}"></script>
+<script type="text/javascript" src="{{static_url("js/index.js")}}"></script>
+</body>
+</html>

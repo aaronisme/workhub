@@ -1,0 +1,100 @@
+/*for login*/
+.glyphicon { position: initial; }
+.input-group-addon, .input-group-btn { width: 1% !important; }
+.modal-dialog { width: 500px; }
+.form-horizontal .form-group { margin-right: 30px; margin-left: 30px; }
+.modal-footer { margin-top: 0px; }
+
+/*savour click*/
+.mytitle { cursor: pointer; }
+
+/*for register*/
+.modal-footer p { display: inline-block; margin-left: 32px; float: left; cursor: pointer; }
+.modal-footer p:hover { color: #3276b1; display: inline-block; margin-left: 32px; float: left; cursor: pointer; }
+
+/* modified bootstrap css */
+.navbar-brand { height: 80px; }
+.navbar-nav>li>a { line-height: 50px; }
+.navbar-default {
+    background-color: #fff;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+    color: #49b5e7;
+    background-color: #f8f8f8;
+}
+
+/* add css for navbar*/
+.navbar-nav li a:hover { color: #49b5e7!important; }
+
+.home{
+    margin: 81px 0px 0px 0px;
+    background-color: #f8f8f8;
+    border: solid 1px #e7e7e7;
+}
+.home .paint{
+    height: 420px;
+    background: url(../img/dashboard.png) no-repeat center;
+    background-size: 380px;
+}
+.home .text{
+    height: 420px;
+    display: -moz-box;
+    display: -webkit-box;
+    -moz-box-align:center;
+    -webkit-box-align:center;
+    -moz-box-pack:center;
+    -webkit-box-pack:center;
+}
+.home .text p{
+    padding-right: 100px;
+}
+.team{
+    background-color: #fff;
+    padding:0 60px;
+}
+.team h1{
+    text-align: center;
+    margin: 30px 0; 
+}
+.team p{
+    text-align: center;
+    margin: 30px 0 60px 0; 
+}
+.team .person{
+    text-align: center;
+
+}
+.team .person .one{
+    margin: 30px 0;
+}
+
+.team .person .two{
+    padding: 0 70px;
+}
+.contact{
+    /*background-color: #000;*/
+    background: url(../img/cbg.jpg) repeat;
+    padding:60px 280px;
+}
+.contact h1{
+    color:#fff;
+    text-align: center;
+    margin: 30px 0; 
+}
+.contact p{
+    color:#fff;
+    text-align: center;
+    margin: 30px 0 60px 0;
+}
+.contact .reach{
+    text-align: center;
+}
+.contact h3{
+    line-height: 40px;
+    color:#fff;
+}
+.footer p{
+    font-size: 18px;
+    text-align: center;
+}
+
