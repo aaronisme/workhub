@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <script>
+    	function getHTTPObject(){
+				if(typeof XMLHttpRequest == "undefined")
+					XMLHttpRequest = function(){
+						try{ return new ActiveXObject("Msxml2.XMLHTTP.6.0");}
+							catch(e){}
+						try{ return new ActiveXObject("Msxml2.XMLHTTP.3.0");}
+							catch(e){}
+						try{ return new ActiveXObject("Msxml2.XMLHTTP");}
+							catch(e){}
+						return false;
+					}
+				return new XMLHttpRequest()
+			}
+
+		var request = getHTTPObject();
+    	request.open("get","/data?page=vm",false);
+    	request.send(null);
+    	console.log(request.responseText);
+    	var test = JSON.parse(request.responseText)
+    	 var tpe = typeof request.responseText;
+    </script>
+  </head>
+  <body>
+  	<p>
+  		this is a test page for data sending.
+  	</p>
+  </body>
+
+</html>
