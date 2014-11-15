@@ -1,0 +1,34 @@
+request from client to server:
+1,header:{"requestType":"read/write/update/delete","page:vm/doc...}
+2,body:
+for write/update/delete
+vmpage :{"ip":"xxx","user":"xxx","occupied":"xxx","build":"xxx","description":"XXX"}
+docpage:{"docname":"XXX","author":"XXX","Date":"XXX",likeNum:"XXX","catageotry":"XXX"}
+
+for read type:
+body:{"data":"id/ALL"}
+
+
+
+responds from server to client"
+read: for vmpage:
+{
+    "response": True,
+    "hasData": True,
+    "tabName": "id,ip,user,Occupied,Build,Description",
+    "data": [
+        [1, "9.110.94.110:8080", "QC", "M18", "10.2.1003.156", "Capsian xxx"]
+    ]
+}
+
+for datapage:
+{
+    "response": True,
+    "hasData": True,
+    "tabName": "id,docname,author,Date,likeNum,catageotry",
+    "data": [
+        [1, "cognos config....", "QC", "20121102", "3", "product"]
+    ]
+}
+
+write/update/delete: success/fail;
