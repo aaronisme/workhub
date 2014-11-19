@@ -18,7 +18,7 @@ class dataHandler(tornado.web.RequestHandler):
         if (requestData == u"form"):
             if(requestPage == u"vm"):
                 print requestData
-                dbdataobj = {"ip":self.get_argument("ip"), "user": self.get_argument("user"), "occuiped": self.get_argument("Occuiped"), "build": self.get_argument("Build"), "description": self.get_argument("Description")}
+                dbdataobj = {"ip":self.get_argument("ip"), "user": self.get_argument("user"), "occupied": self.get_argument("Occupied"), "build": self.get_argument("Build"), "description": self.get_argument("Description")}
                 print  dbdataobj
             if(requestPage == u"doc"):
                 dbdataobj = {"docname":self.get_argument("docname"),"author":self.get_argument("author"),"date":self.get_argument("Date"),"likenum":self.get_argument("likeNum"),"catageotry":self.get_argument("catageotry")}
