@@ -2,8 +2,8 @@ request from client to server:
 1,header:{"requestType":"read/write/update/delete","page:vm/doc...}
 2,body:
 for write/update/delete
-vmpage :{"ip":"xxx","user":"xxx","occupied":"xxx","build":"xxx","description":"XXX"}
-docpage:{"docname":"XXX","author":"XXX","Date":"XXX",likeNum:"XXX","catageotry":"XXX"}
+vmpage body:{"data":{"ip":"xxx","user":"xxx","occupied":"xxx","build":"xxx","description":"XXX"}}
+docpage body:{"data":{"docname":"XXX","author":"XXX","Date":"XXX",likeNum:"XXX","catageotry":"XXX"}}
 
 for read type:
 body:{"data":"id/ALL"}

@@ -9,5 +9,5 @@ sys.setdefaultencoding('utf-8')
 
 class indexHandler(tornado.web.RequestHandler):
 	def get(self):
-		self.render("index.html")
+		self.render("test.html")
 		
