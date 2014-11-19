@@ -11,8 +11,6 @@ from optsql.database import dbHander
 
 
 class dataHandler(tornado.web.RequestHandler):
-
-    dbinstance = dbHander()
     def post(self):
         requestType = self.get_argument("requestType")
         requestPage = self.get_argument("page")
@@ -35,7 +33,7 @@ class dataHandler(tornado.web.RequestHandler):
             return False
 
         if(requestType == u"write"):
-            result = self.dbinstance.writeData(requestPage, dbdataobj)
+            result = dbHander().writeData(requestPage, dbdataobj)
             print  result
             if(result == True):
                 self.write({"result":"success"})
