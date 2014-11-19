@@ -8,7 +8,7 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-conn = mysql.connector.connect(user='root', password='123456', database='workhub')
+conn = mysql.connector.connect(user='root', password='pass1234', database='workhub')
 cur = conn.cursor()
 
 class dbHander():
@@ -16,33 +16,38 @@ class dbHander():
         if(num == 'all'):
             query = ("select * from " + table)
         else:
-            query = ("select * from " + table + "where id = " + num)
+            query = ("select * from " + table + " where id = " + num)
         try:
+            print query
             cur.execute(query)
             data = cur.fetchall()
+            conn.close()
+            return data
         except:
             conn.rollback()
 
         conn.close()
-        return data
+        return
 
     def writeData(self, table, data):
         items = data.keys()
         values = data.values()
         itemstr = data.keys()[0]
-        valuestr = data.values()[0]
+        valuestr = "'"+data.values()[0]+"'"
         for i in range(1,len(items)):
             itemstr = itemstr + ", " + items[i]
         for j in range(1,len(values)):
-            valuestr = valuestr + ", " + values[i]
+            valuestr = valuestr + ", " + "'"+values[j]+"'"
 
-        query = ("insert into " + table + "(" + itemstr +")" +"values" + "("+ valuestr +")" )
+        query = ("insert into " + table + "(" + itemstr +")" +" values " + "("+ valuestr +")" )
         try:
+            print query
             cur.execute(query)
             cur.commit()
             conn.close()
-            return  True
-        except:
+            return True
+        except(Exception):
+            print Exception
             conn.rollback()
             conn.close()
             return False

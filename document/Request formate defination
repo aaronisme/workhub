@@ -1,12 +1,12 @@
 request from client to server:
-1,header:{"requestType":"read/write/update/delete","page:vm/doc...}
+1,header:{"requestType":"read/write/update/delete","page:vm/doc...",data:"id/all/form"}
 2,body:
-for write/update/delete
-vmpage body:{"data":{"ip":"xxx","user":"xxx","occupied":"xxx","build":"xxx","description":"XXX"}}
-docpage body:{"data":{"docname":"XXX","author":"XXX","Date":"XXX",likeNum:"XXX","catageotry":"XXX"}}
+for write/update/delete,"data" is set to "detail" these information will be followed
+{"ip":"xxx","user":"xxx","occupied":"xxx","build":"xxx","description":"XXX"}
+{"docname":"XXX","author":"XXX","Date":"XXX",likeNum:"XXX","catageotry":"XXX"}
 
-for read type:
-body:{"data":"id/ALL"}
+for read,"data" is set to "id/all".
+body:{"data":"id/all"}
 
 
 

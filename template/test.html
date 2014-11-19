@@ -1,32 +1,46 @@
 <html>
   <head>
-    <script>
-    	function getHTTPObject(){
-				if(typeof XMLHttpRequest == "undefined")
-					XMLHttpRequest = function(){
-						try{ return new ActiveXObject("Msxml2.XMLHTTP.6.0");}
-							catch(e){}
-						try{ return new ActiveXObject("Msxml2.XMLHTTP.3.0");}
-							catch(e){}
-						try{ return new ActiveXObject("Msxml2.XMLHTTP");}
-							catch(e){}
-						return false;
-					}
-				return new XMLHttpRequest()
-			}
-
-		var request = getHTTPObject();
-    	request.open("get","/data?page=vm",false);
-    	request.send(null);
-    	console.log(request.responseText);
-    	var test = JSON.parse(request.responseText)
-    	 var tpe = typeof request.responseText;
-    </script>
   </head>
   <body>
   	<p>
   		this is a test page for data sending.
   	</p>
+
+   <form method="post" action="/data">
+    <fieldset>
+        <p>
+             <input type="text" id="requestType" name="requestType" value="write" placeholder="Your name is" required="required" />
+        </p>
+        <p>
+            <input type="text" id="page" name="page" value="vm" placeholder="Your email address" required="required" />
+        </p>
+        <p>
+             <input type="text" id="data" name="data" value="form" placeholder="Your name is" required="required" />
+        </p>
+
+        <p>
+             <input type="text" id="ip" name="ip" value="9.110.82.15" placeholder="Your name is" required="required" />
+        </p>
+
+        <p>
+             <input type="text" id="user" name="user" value="QC" placeholder="Your name is" required="required" />
+        </p>
+
+        <p>
+             <input type="text" id="Occuiped" name="Occuiped" value="M18" placeholder="Your name is" required="required" />
+        </p>
+
+        <p>
+             <input type="text" id="Build" name="Build" value="10.2.6100.23" placeholder="Your name is" required="required" />
+        </p>
+        <p>
+             <input type="text" id="Description" name="Description" value="testing" placeholder="Your name is" required="required" />
+        </p>
+
+    <input type="submit" value="Send" />
+    </fieldset>
+   </form>
+
   </body>
 
 </html>

@@ -12,26 +12,36 @@ from optsql.database import dbHander
 
 class dataHandler(tornado.web.RequestHandler):
     def post(self):
-        requestType = self.get_argument("requestType")[0]
-        requestPage = self.get_arguments("page")[0]
-        requestData = self.get_argument("data")[0]
+        requestType = self.get_argument("requestType")
+        requestPage = self.get_argument("page")
+        requestData = self.get_argument("data")
+        if (requestData == u"form"):
+            if(requestPage == u"vm"):
+                print requestData
+                dbdataobj = {"ip":self.get_argument("ip"), "user": self.get_argument("user"), "occuiped": self.get_argument("Occuiped"), "build": self.get_argument("Build"), "description": self.get_argument("Description")}
+                print  dbdataobj
+            if(requestPage == u"doc"):
+                dbdataobj = {"docname":self.get_argument("docname"),"author":self.get_argument("author"),"date":self.get_argument("Date"),"likenum":self.get_argument("likeNum"),"catageotry":self.get_argument("catageotry")}
+
         if(requestType == u"read"):
-            requestData = self.get_argument("data")[0]
-            dbData = dataHandler().getData(requestPage, requestData)
-            clientdata = json.dumps(dataHandler().transformData(dbData, requestPage))
+            requestData = self.get_argument("data")
+            dbData = dbHander().getData(requestPage, requestData)
+            print dbData
+            clientdata = json.dumps(dbHander().transformData(dbData, requestPage))
+            print clientdata
             self.write(clientdata)
             return False
+
         if(requestType == u"write"):
-            dbData = json.loads(requestData)
-            result = dbHander().wirteData(requestPage, dbData)
+            result = dbHander().writeData(requestPage, dbdataobj)
+            print  result
             if(result == True):
                 self.write({"result":"success"})
             else:
                 self.write({"result":"fail"})
             return False
         if(requestType == u"update"):
-            dbData = json.loads(requestData)
-            result = dbHander().updateData(requestPage, dbData)
+            result = dbHander().updateData(requestPage, dbdataobj)
             if(result == True):
                 self.write({"result":"success"})
             else:
