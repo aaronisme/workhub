@@ -11,6 +11,8 @@ from optsql.database import dbHander
 
 
 class dataHandler(tornado.web.RequestHandler):
+
+    dbinstance = dbHander()
     def post(self):
         requestType = self.get_argument("requestType")
         requestPage = self.get_argument("page")
@@ -33,20 +35,20 @@ class dataHandler(tornado.web.RequestHandler):
             return False
 
         if(requestType == u"write"):
-            result = dbHander().writeData(requestPage, dbdataobj)
+            result = self.dbinstance.writeData(requestPage, dbdataobj)
             print  result
             if(result == True):
                 self.write({"result":"success"})
             else:
                 self.write({"result":"fail"})
-            return False
+            return
         if(requestType == u"update"):
             result = dbHander().updateData(requestPage, dbdataobj)
             if(result == True):
                 self.write({"result":"success"})
             else:
                 self.write({"result":"fail"})
-            return False
+            return
         if(requestType == u"delete"):
             dbData = json.loads(requestData)
             result = dbHander().deleteData(requestPage, dbData)
@@ -54,5 +56,5 @@ class dataHandler(tornado.web.RequestHandler):
                 self.write({"result":"success"})
             else:
                 self.write({"result":"fail"})
-            return False
+            return
 

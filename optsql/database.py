@@ -8,11 +8,12 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-conn = mysql.connector.connect(user='root', password='pass1234', database='workhub')
-cur = conn.cursor()
 
 class dbHander():
+
     def getData(self, table, num):
+        conn = mysql.connector.connect(user='root', password='pass1234', database='workhub')
+        cur =  conn.cursor()
         if(num == 'all'):
             query = ("select * from " + table)
         else:
@@ -30,6 +31,8 @@ class dbHander():
         return
 
     def writeData(self, table, data):
+        conn = mysql.connector.connect(user='root', password='pass1234', database='workhub')
+        cur = conn.cursor()
         items = data.keys()
         values = data.values()
         itemstr = data.keys()[0]
@@ -43,7 +46,7 @@ class dbHander():
         try:
             print query
             cur.execute(query)
-            cur.commit()
+            conn.commit()
             conn.close()
             return True
         except(Exception):
