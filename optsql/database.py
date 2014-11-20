@@ -57,9 +57,50 @@ class dbHander():
 
 
     def updateData(self, table, data):
+        conn = mysql.connector.connect(user='root', password='pass1234', database='workhub')
+        cur = conn.cursor()
+        dbidkey = data["id"]
+        del data["id"]
+        items = data.keys()
+        values = data.values()
+        updatestr = items[0] + "=" + "'" + values[0] + "'"
 
-        return True
+        for i in range(1, len(items)):
+            updatestr = updatestr + ","+ items[i] + "=" + "'" + values[i] + "'"
+
+        query = ("update " + table + " set " + updatestr + " where id = " + dbidkey)
+
+        try:
+            print query
+            cur.execute(query)
+            conn.commit()
+            conn.close()
+            return  True
+        except Exception as e:
+            print e
+            conn.rollback()
+            conn.close()
+            return False
+
+
     def deleteData(self, table, data):
+        conn = mysql.connector.connect(user='root', password='pass1234', database='workhub')
+        cur = conn.cursor()
+        dbidkey = data["id"]
+
+        query = ("delete from " + table + " where id = " + dbidkey)
+
+        try:
+            print query
+            cur.execute(query)
+            conn.commit()
+            conn.close()
+            return True
+        except Exception as e:
+            print e
+            conn.rollback()
+            conn.close()
+            return False
 
         return True
 

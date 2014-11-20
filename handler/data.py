@@ -18,7 +18,7 @@ class dataHandler(tornado.web.RequestHandler):
         if (requestData == u"form"):
             if(requestPage == u"vm"):
                 print requestData
-                dbdataobj = {"ip":self.get_argument("ip"), "user": self.get_argument("user"), "occupied": self.get_argument("Occupied"), "build": self.get_argument("Build"), "description": self.get_argument("Description")}
+                dbdataobj = {"id":self.get_argument("id"), "ip":self.get_argument("ip"), "user": self.get_argument("user"), "occupied": self.get_argument("Occupied"), "build": self.get_argument("Build"), "description": self.get_argument("Description")}
                 print  dbdataobj
             if(requestPage == u"doc"):
                 dbdataobj = {"docname":self.get_argument("docname"),"author":self.get_argument("author"),"date":self.get_argument("Date"),"likenum":self.get_argument("likeNum"),"catageotry":self.get_argument("catageotry")}
@@ -48,8 +48,7 @@ class dataHandler(tornado.web.RequestHandler):
                 self.write({"result":"fail"})
             return
         if(requestType == u"delete"):
-            dbData = json.loads(requestData)
-            result = dbHander().deleteData(requestPage, dbData)
+            result = dbHander().deleteData(requestPage, dbdataobj)
             if(result == True):
                 self.write({"result":"success"})
             else:
