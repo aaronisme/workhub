@@ -21,7 +21,7 @@ class dataHandler(tornado.web.RequestHandler):
                 dbdataobj = {"id":self.get_argument("id"), "ip":self.get_argument("ip"), "user": self.get_argument("user"), "occupied": self.get_argument("Occupied"), "build": self.get_argument("Build"), "description": self.get_argument("Description")}
                 print  dbdataobj
             if(requestPage == u"doc"):
-                dbdataobj = {"docname":self.get_argument("docname"),"author":self.get_argument("author"),"date":self.get_argument("Date"),"likenum":self.get_argument("likeNum"),"catageotry":self.get_argument("catageotry")}
+                dbdataobj = {"id":self.get_argument("id"), "docname":self.get_argument("docname"),"author":self.get_argument("author"),"date":self.get_argument("Date"),"likenum":self.get_argument("likeNum"),"catageotry":self.get_argument("catageotry")}
 
         if(requestType == u"read"):
             requestData = self.get_argument("data")
