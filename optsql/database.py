@@ -10,11 +10,10 @@ sys.setdefaultencoding('utf-8')
 
 
 class dbHander():
-
     def getData(self, table, num):
         conn = mysql.connector.connect(user='root', password='pass1234', database='workhub')
-        cur =  conn.cursor()
-        if(num == 'all'):
+        cur = conn.cursor()
+        if (num == 'all'):
             query = ("select * from " + table)
         else:
             query = ("select * from " + table + " where id = " + num)
@@ -36,13 +35,13 @@ class dbHander():
         items = data.keys()
         values = data.values()
         itemstr = data.keys()[0]
-        valuestr = "'"+data.values()[0]+"'"
-        for i in range(1,len(items)):
+        valuestr = "'" + data.values()[0] + "'"
+        for i in range(1, len(items)):
             itemstr = itemstr + ", " + items[i]
-        for j in range(1,len(values)):
-            valuestr = valuestr + ", " + "'"+values[j]+"'"
+        for j in range(1, len(values)):
+            valuestr = valuestr + ", " + "'" + values[j] + "'"
 
-        query = ("insert into " + table + "(" + itemstr +")" +" values " + "("+ valuestr +")" )
+        query = ("insert into " + table + "(" + itemstr + ")" + " values " + "(" + valuestr + ")" )
         try:
             print query
             cur.execute(query)
@@ -66,7 +65,7 @@ class dbHander():
         updatestr = items[0] + "=" + "'" + values[0] + "'"
 
         for i in range(1, len(items)):
-            updatestr = updatestr + ","+ items[i] + "=" + "'" + values[i] + "'"
+            updatestr = updatestr + "," + items[i] + "=" + "'" + values[i] + "'"
 
         query = ("update " + table + " set " + updatestr + " where id = " + dbidkey)
 
@@ -75,7 +74,7 @@ class dbHander():
             cur.execute(query)
             conn.commit()
             conn.close()
-            return  True
+            return True
         except Exception as e:
             print e
             conn.rollback()

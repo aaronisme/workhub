@@ -21,7 +21,8 @@ class dataHandler(tornado.web.RequestHandler):
                 dbdataobj = {"id":self.get_argument("id"), "ip":self.get_argument("ip"), "user": self.get_argument("user"), "occupied": self.get_argument("Occupied"), "build": self.get_argument("Build"), "description": self.get_argument("Description")}
                 print  dbdataobj
             if(requestPage == u"doc"):
-                dbdataobj = {"id":self.get_argument("id"), "docname":self.get_argument("docname"),"author":self.get_argument("author"),"date":self.get_argument("Date"),"likenum":self.get_argument("likeNum"),"catageotry":self.get_argument("catageotry")}
+                #dbdataobj = {"id":self.get_argument("id"), "docname":self.get_argument("docname"),"author":self.get_argument("author"),"date":self.get_argument("Date"),"likenum":self.get_argument("likeNum"),"catageotry":self.get_argument("catageotry")}
+                print "a"
 
         if(requestType == u"read"):
             requestData = self.get_argument("data")
@@ -40,13 +41,24 @@ class dataHandler(tornado.web.RequestHandler):
             else:
                 self.write({"result":"fail"})
             return
+
         if(requestType == u"update"):
-            result = dbHander().updateData(requestPage, dbdataobj)
-            if(result == True):
-                self.write({"result":"success"})
-            else:
-                self.write({"result":"fail"})
-            return
+            if(requestPage ==u"doc"):
+                fileobj = open('temp/text.json', 'r+')
+                iplist = json.load(fileobj)
+
+
+
+
+                print iplist
+        return
+            #result = dbHander().updateData(requestPage, dbdataobj)
+            #if(result == True):
+            #    self.write({"result":"success"})
+            #else:
+            #    self.write({"result":"fail"})
+            #return
+
         if(requestType == u"delete"):
             result = dbHander().deleteData(requestPage, dbdataobj)
             if(result == True):
