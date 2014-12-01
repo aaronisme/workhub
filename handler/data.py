@@ -15,6 +15,7 @@ class dataHandler(tornado.web.RequestHandler):
         requestType = self.get_argument("requestType")
         requestPage = self.get_argument("page")
         requestData = self.get_argument("data")
+        requestIp = "9.110.94.12"
         if (requestData == u"form"):
             if(requestPage == u"vm"):
                 print requestData
@@ -43,21 +44,34 @@ class dataHandler(tornado.web.RequestHandler):
             return
 
         if(requestType == u"update"):
-            if(requestPage ==u"doc"):
-                fileobj = open('temp/text.json', 'r+')
-                iplist = json.load(fileobj)
+            fileobj = open('temp/text.json', 'r')
+            iplist = json.load(fileobj)
+            fileobj.close()
+            print type(iplist)
+            dbdataobj={"id":1, "likenum":3}
+            doclikelist = iplist["log"]
+            for i in range(0,len(doclikelist)):
+                if(dbdataobj["id"] == doclikelist[i]["docid"]):
+                    dociplist = doclikelist[i]["IP"]
+                    if(dbdataobj["likenum"] != len(dociplist)):
+                        if(requestIp in dociplist):
+                            # send to client
+                            self.write({"result":"fail"})
+                            return
+                        else:
+                            dociplist.append(requestIp)
+                            print dociplist
+                            print iplist
+                            fileobj = open('temp/text.json', 'w')
+                            json.dump(iplist, fileobj)
+                            fileobj.close()
 
-
-
-
-                print iplist
-        return
-            #result = dbHander().updateData(requestPage, dbdataobj)
-            #if(result == True):
-            #    self.write({"result":"success"})
-            #else:
-            #    self.write({"result":"fail"})
-            #return
+            result = dbHander().updateData(requestPage, dbdataobj)
+            if(result == True):
+                self.write({"result":"success"})
+            else:
+                self.write({"result":"fail"})
+            return
 
         if(requestType == u"delete"):
             result = dbHander().deleteData(requestPage, dbdataobj)
