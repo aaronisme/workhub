@@ -1,0 +1,18 @@
+.addVMRow {
+    padding: 80px 140px 0 140px;
+    min-height: 868px;
+}
+.addVMPanel {
+	width:60%;
+	margin:0 auto;
+	min-width:400px;
+}
+
+.twoBtn {
+	padding-top:10px;
+	float:right;
+}
+
+.row {
+	margin: 0;
+}

@@ -1,12 +1,11 @@
 $(function(){
 	$.ajax({
 		type: "POST",
-		url: "/data",
-		data: {"data": "VM"},
+		url: VMADDR,
+		data: {"requestType":"read", "data": "VM"},
 		dataType: "json",
 		success: function(data){
 			// console.log(data);
-			
 			if ( data.response == true && data.hasData == true ) {
 				$("#VMContent").empty();
 				$("#VMContent").append('\
@@ -27,16 +26,16 @@ $(function(){
 					for (var i = 0; i < data.data.length; i++) {	
 						$("#VMtbody").append('\
 							<tr>\
-								<td><a href="'+data.data[i][1]+'/ibmcognos">'+data.data[i][1]+'<a></td>\
+								<td><a href="http://'+data.data[i][1]+'/ibmcognos">'+data.data[i][1]+'<a></td>\
 								<td>'+data.data[i][2]+'</td>\
 								<td>'+data.data[i][3]+'</td>\
 								<td>'+data.data[i][4]+'</td>\
 								<td>'+data.data[i][5]+'</td>\
 								<td>\
-								<a href="?'+data.data[i][0]+'" type="button" class="btn btn-primary btn-lg edit">\
+								<a href="editVM.html?id='+data.data[i][0]+'" type="button" class="btn btn-primary btn-lg edit">\
 								<span class="glyphicon glyphicon-wrench"></span>\
 								</a>\
-								<a href="?'+data.data[i][0]+'" type="button" class="btn btn-danger btn-lg del">\
+								<a href="javascript:void(0);" index="'+i+'" id="'+data.data[i][0]+'" type="button" class="btn btn-danger btn-lg del">\
 								<span class="glyphicon glyphicon-remove"></span>\
 								</a>\
 								</td>\
@@ -45,18 +44,41 @@ $(function(){
 			};
 			//tooltip
 			$('.edit').tooltip({
-				placement: 'top',
+				placement: 'left',
 				title: '编辑VM',
 				trigger:'hover',
 			});
 			$('.del').tooltip({
-				placement: 'top',
+				placement: 'right',
 				title: '删除VM',
 				trigger:'hover',
+			});
+			$('.addVM').tooltip({
+				placement: 'top',
+				title: '添加VM',
+				trigger:'hover',
+			});
+
+			$(".del").click(function(event){
+				$index = $(this).attr("index");
+				$id = $(this).attr("id");
+				swal({   
+					title: "Are you sure?",   
+					text: "You will delete the VM whose IP is "+data.data[$index][1],   
+					type: "warning",   
+					showCancelButton: true,   
+					confirmButtonColor: "#DD6B55",   
+					confirmButtonText: "Yes, delete it!",   
+					cancelButtonText: "No, cancel plx!",   
+					closeOnConfirm: false,   
+					closeOnCancel: true }, 
+					function(isConfirm){   
+						if (isConfirm) {     
+							window.location.href = DELADDR+"?requestType=delete&page=vm&data="+$id;
+						} 
+					});
 			});
 
 		}
 	});
-
-
 });

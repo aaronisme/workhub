@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AddDoc</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="{{static_url("img/icon.png")}}">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{{static_url("css/bootstrap.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{static_url("css/sweet-alert.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{static_url("css/addDoc.css")}}">
+    <script type="text/javascript">
+    //DOC后端处理地址
+    var ADDDOCADDR = "fake3.json";
+    </script>
+</head>
+<body>
+    <div class="row addDocRow">
+        <div class="panel panel-warning addDocPanel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add New Doc</h3>
+            </div>
+            <div id="addDocContent" class="panel-body">
+                <div class="col-sm-10">
+                  <form class="form-horizontal" role="form" id="addDocForm">
+
+                    <div class="form-group">
+                        <label for="exampleInuptName" class="col-sm-3 control-label">Upload Type</label>
+                        <div class="col-sm-9">
+                            <label for="LA" style="margin-right:20px;">
+                                <input id="LA" type="radio" name="type" value="link" checked>Link Addr
+                            </label>
+                            <label for="UF">
+                                <input id="UF" type="radio" name="type" value="file">Upload File
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="LAdiv" class="form-group">
+                        <label for="exampleInuptName" class="col-sm-3 control-label">Link Addr</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputLink" name="Link_Addr">
+                        </div>
+                    </div>
+
+                    <div id="UFdiv" class="form-group">
+                        <label for="exampleInuptName" class="col-sm-3 control-label">Upload File</label>
+                        <div class="col-sm-9">
+                            <span class="btn btn-info fileinput-button form-control">
+                                <span>Upload File</span>
+                                <input id="fileupload" type="file" name="files[]">
+                                <input type="hidden" class="form-control" id="uploadId" name="uploadId" value="">
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInuptName" class="col-sm-3 control-label">Doc Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputName" name="Doc_Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInuptOwner" class="col-sm-3 control-label">Owner</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputOwner" name="Owner" placeholder="不超过16字符" required maxlength="16">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInuptDescription" class="col-sm-3 control-label">Description</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputDescription" name="Description" placeholder="不超过50字符" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                            <input type="text" class="form-control" name="requestType" value="write" style="display:none;">
+                    </div>
+                    <div class="form-group">
+                            <input type="text" class="form-control" name="page" value="doc" style="display:none;">
+                    </div>
+                    <div class="form-group">
+                            <input type="text" class="form-control" name="data" value="form" style="display:none;">
+                    </div>
+                    <div class="form-group">
+                        <div class="twoBtn">
+                            <button type="button" id="addDocSubmit" class="btn btn-primary" style="width:71px;">OK</button>
+                            <a class="btn btn-primary" href="doc.html">Cancel</a>
+                        </div>
+                    </div>
+                  </form>
+              </div>
+            </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="{{static_url("js/jquery.1.11.1.min.js")}}"></script>
+    <script type="text/javascript" src="{{static_url("js/bootstrap.min.js")}}"></script>
+    <script type="text/javascript" src="{{static_url("js/sweet-alert.min.js")}}"></script>
+    <script type="text/javascript" src="{{static_url("js/jquery.ui.widget.js")}}"></script>
+    <script type="text/javascript" src="{{static_url("js/jquery.fileupload.js")}}"></script>
+
+    <script type="text/javascript" src="{{static_url("js/addDoc.js")}}"></script>
+</body>

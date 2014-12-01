@@ -18,7 +18,7 @@ html,body{
 
 /* content style */
 .row { margin-left: 0; margin-right: 0; }
-.vm {
+.docRow {
     padding:140px;
     min-height: 868px;
 }
@@ -43,24 +43,28 @@ height: 20px;
 margin: 0 auto;
 }
 
-/*modify the BS btn style*/
-.glyphicon {
-position: relative;
-top: -5px;
-left: -8px;
+.del {
+    float:right;
+    margin-top: 3px;
+}
+.bar {
+    background-color: #b9def0;
+    padding:0 8px;
 }
 
-.edit, .del {
-    width:32px;
-    height:32px;
-    border-radius: 16px;
+.docGood {
+    cursor: pointer;
 }
 
-.addVM {
-    float: right;
-    font-size: 28px;
-    top: 5px;
+.thumbnail .caption {
+height: 180px;
+overflow-y: hidden;
+color: #555;
+padding: 0 8px;
+word-break: break-all;
 }
-.addVM:hover {
-    text-decoration: none;
+
+h3{
+    margin:10px 0;
 }
+

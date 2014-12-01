@@ -18,7 +18,7 @@ html,body{
 
 /* content style */
 .row { margin-left: 0; margin-right: 0; }
-.vm {
+.docRow {
     padding:140px;
     min-height: 868px;
 }
@@ -43,24 +43,47 @@ height: 20px;
 margin: 0 auto;
 }
 
-/*modify the BS btn style*/
-.glyphicon {
-position: relative;
-top: -5px;
-left: -8px;
+
+.docs-header {
+width: 60%;
+text-align: center;
+margin: 25px 0 10px;
+font-weight: 200;
+margin-bottom: 40px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+.thumbnail {
+display: block;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+max-width: 310px;
+margin-bottom: 30px;
+border-radius: 0;
 }
 
-.edit, .del {
-    width:32px;
-    height:32px;
-    border-radius: 16px;
+.thumbnail .caption {
+height: 200px;
+overflow-y: hidden;
+color: #555;
 }
-
-.addVM {
-    float: right;
-    font-size: 28px;
-    top: 5px;
+.env {
+    background-color: #428bca;
 }
-.addVM:hover {
+.mobile {
+    background-color: #419641;
+}
+.workitem {
+    background-color: #5bc0de;
+}
+.auto {
+    background-color: #f0ad4e;
+}
+.other {
+    background-color: #d9534f;
+}
+.row a {
     text-decoration: none;
 }

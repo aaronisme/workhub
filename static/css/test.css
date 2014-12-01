@@ -1,0 +1,66 @@
+html, body{
+	height: 100%;
+}
+
+.s2container{
+	height: 100%;
+	min-height: 490px;
+	padding-bottom: 72px;	
+	/*height: 400px;*/
+	width: 100%;
+	 display: -moz-box;
+    display: -webkit-box;
+    -moz-box-align:center;
+    -webkit-box-align:center;
+    -moz-box-pack:center;
+    -webkit-box-pack:center;
+}
+
+.stella{
+background-image: url(../img/build.png);
+background-size: 300px;
+background-repeat: no-repeat;
+background-position: center center;
+text-align: center;
+height: 200px;
+padding-top: 180px;
+}
+
+/* modified bootstrap css */
+.navbar-brand { height: 80px; }
+.navbar-nav>li>a { line-height: 50px; }
+.navbar-default {
+    background-color: #fff;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+    color: #49b5e7;
+    background-color: #f8f8f8;
+}
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* add css for navbar*/
+.navbar-nav li a:hover { color: #49b5e7!important; }
+
+.footer{
+position: relative;
+top: -72px;
+height: 72px;
+background-color: #2B3033;
+text-align: center;
+display: -moz-box;
+display: -webkit-box;
+-moz-box-align:center;
+-webkit-box-align:center;
+-moz-box-pack:center;
+-webkit-box-pack:center;
+}
+
+.footer p{
+font-size: 12px;
+color: #778489;
+height: 20px;
+margin: 0 auto;
+}

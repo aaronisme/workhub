@@ -1,0 +1,25 @@
+.addDocRow {
+    padding: 80px 140px 0 140px;
+    min-height: 868px;
+}
+.addDocPanel {
+	width:60%;
+	margin:0 auto;
+	min-width:400px;
+}
+
+.twoBtn {
+	padding-top:10px;
+	float:right;
+}
+
+.row {
+	margin: 0;
+}
+
+/*upload*/
+.fileinput-button { position: relative; overflow: hidden; background-color:#419641;}
+.fileinput-button input { position: absolute; top: 0; right: 0; margin: 0; opacity: 0; font-size: 200px; direction: ltr; cursor: pointer; }
+
+
+
