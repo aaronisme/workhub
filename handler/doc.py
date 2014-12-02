@@ -12,6 +12,3 @@ sys.setdefaultencoding('utf-8')
 class docHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("doc.html")
-
-    def post(self):
-        self.get_arguments("")
