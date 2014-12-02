@@ -11,7 +11,7 @@ $(function(){
                 }else{
         		$.ajax({
                         type: "POST",
-                        url:"./fake2.json",
+                        url:"./data",
                         data:$('#addVMForm').serialize(),
                         success: function(data) {
                         	console.log(data);

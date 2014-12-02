@@ -1,8 +1,8 @@
 $(function(){
 	$.ajax({
 		type: "POST",
-		url: VMADDR,
-		data: {"requestType":"read", "data": "VM"},
+		url: "/data",
+		data: {"requestType":"read", "page": "vm","data":"all"},
 		dataType: "json",
 		success: function(data){
 			// console.log(data);

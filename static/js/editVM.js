@@ -19,7 +19,7 @@ $(function(){
 	$.ajax({
 		type: "POST",
 		url: "./fake1.json",
-		data: {"data": id, "requestType":"read"},
+		data: {"data": id, "requestType":"read","page":"vm"},
 		dataType: "json",
 		success: function(data){
 			var showdata = data.data[id-1];

@@ -112,6 +112,7 @@ class dbHander():
             return requestData
         else:
             if (page == "vm"):
+                print "page is"
                 requestData = {
                     "response": True,
                     "hasData": True,

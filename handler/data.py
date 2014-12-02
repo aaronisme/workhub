@@ -22,17 +22,19 @@ class dataHandler(tornado.web.RequestHandler):
                 dbdataobj = {"id":self.get_argument("id"), "ip":self.get_argument("ip"), "user": self.get_argument("user"), "occupied": self.get_argument("Occupied"), "build": self.get_argument("Build"), "description": self.get_argument("Description")}
                 print  dbdataobj
             if(requestPage == u"doc"):
-                #dbdataobj = {"id":self.get_argument("id"), "docname":self.get_argument("docname"),"author":self.get_argument("author"),"date":self.get_argument("Date"),"likenum":self.get_argument("likeNum"),"catageotry":self.get_argument("catageotry")}
+                dbdataobj = {"id":self.get_argument("id"), "docname":self.get_argument("docname"),"author":self.get_argument("author"),"date":self.get_argument("Date"),"likenum":self.get_argument("likeNum"),"catageotry":self.get_argument("catageotry")}
                 print "a"
 
         if(requestType == u"read"):
             requestData = self.get_argument("data")
             dbData = dbHander().getData(requestPage, requestData)
-            print dbData
+            #print dbData
+            #print requestPage
+            #print dbHander().transformData(dbData, requestPage)
             clientdata = json.dumps(dbHander().transformData(dbData, requestPage))
             print clientdata
             self.write(clientdata)
-            return False
+            return
 
         if(requestType == u"write"):
             result = dbHander().writeData(requestPage, dbdataobj)
