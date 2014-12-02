@@ -17,3 +17,7 @@ class vmHandler(tornado.web.RequestHandler):
 class addVmHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("addVM.html")
+
+class editVmHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("editVM.html")

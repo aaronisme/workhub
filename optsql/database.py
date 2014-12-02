@@ -7,11 +7,11 @@ import sys
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
-
+pwd = '123456'
 
 class dbHander():
     def getData(self, table, num):
-        conn = mysql.connector.connect(user='root', password='pass1234', database='workhub')
+        conn = mysql.connector.connect(user='root', password = pwd, database='workhub')
         cur = conn.cursor()
         if (num == 'all'):
             query = ("select * from " + table)
@@ -30,8 +30,9 @@ class dbHander():
         return
 
     def writeData(self, table, data):
-        conn = mysql.connector.connect(user='root', password='pass1234', database='workhub')
+        conn = mysql.connector.connect(user='root', password= pwd, database='workhub')
         cur = conn.cursor()
+        del data["id"]
         items = data.keys()
         values = data.values()
         itemstr = data.keys()[0]
@@ -56,12 +57,14 @@ class dbHander():
 
 
     def updateData(self, table, data):
-        conn = mysql.connector.connect(user='root', password='pass1234', database='workhub')
+        conn = mysql.connector.connect(user='root', password= pwd, database='workhub')
         cur = conn.cursor()
         dbidkey = data["id"]
         del data["id"]
         items = data.keys()
         values = data.values()
+        print items[0]
+        print values[0]
         updatestr = items[0] + "=" + "'" + values[0] + "'"
 
         for i in range(1, len(items)):
@@ -83,10 +86,9 @@ class dbHander():
 
 
     def deleteData(self, table, data):
-        conn = mysql.connector.connect(user='root', password='pass1234', database='workhub')
+        conn = mysql.connector.connect(user='root', password= pwd, database='workhub')
         cur = conn.cursor()
-        dbidkey = data["id"]
-
+        dbidkey = data
         query = ("delete from " + table + " where id = " + dbidkey)
 
         try:

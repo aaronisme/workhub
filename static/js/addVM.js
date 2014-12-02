@@ -26,7 +26,7 @@ $(function(){
                         		},
                         		function(isConfirm){   
 						if (isConfirm) {     
-							window.location.href = "vm.html";
+							window.location.href = "/vm";
 						}
         						}); 
                         	}else{

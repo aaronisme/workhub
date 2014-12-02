@@ -32,7 +32,7 @@ $(function(){
 								<td>'+data.data[i][4]+'</td>\
 								<td>'+data.data[i][5]+'</td>\
 								<td>\
-								<a href="editVM.html?id='+data.data[i][0]+'" type="button" class="btn btn-primary btn-lg edit">\
+								<a href="/editVM?id='+data.data[i][0]+'" type="button" class="btn btn-primary btn-lg edit">\
 								<span class="glyphicon glyphicon-wrench"></span>\
 								</a>\
 								<a href="javascript:void(0);" index="'+i+'" id="'+data.data[i][0]+'" type="button" class="btn btn-danger btn-lg del">\
@@ -74,8 +74,19 @@ $(function(){
 					closeOnCancel: true }, 
 					function(isConfirm){   
 						if (isConfirm) {     
-							window.location.href = DELADDR+"?requestType=delete&page=vm&data="+$id;
-						} 
+								$.ajax({
+		                                  type: "POST",
+		                                  url: "/data",
+                                          data: {"data": $id, "requestType":"delete","page":"vm"},
+                                          dataType: "json",
+                                          success: function(data){
+                                                if(data.response == true && data.success == true){
+                                                    window.location.href = "/vm";
+                                                }
+                                          }
+                                        });
+
+						}
 					});
 			});
 

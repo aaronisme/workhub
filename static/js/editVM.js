@@ -22,7 +22,7 @@ $(function(){
 		data: {"data": id, "requestType":"read","page":"vm"},
 		dataType: "json",
 		success: function(data){
-			var showdata = data.data[id-1];
+			var showdata = data.data[0];
 			//console.log(showdata[1]);
 			$("#inputIP").val(showdata[1]);
 			$("#inputUser").val(showdata[2]);
@@ -44,7 +44,7 @@ $(function(){
 		}else{
 			$.ajax({
 	                type: "POST",
-	                url:"./fake2.json",
+	                url:"/data",
 	                data:$('#editVMForm').serialize(),
 	                success: function(data) {
 	                	if(data.response == true && data.success == true){
@@ -58,7 +58,7 @@ $(function(){
 	                		},
 	                		function(isConfirm){   
 								if (isConfirm) {     
-									window.location.href = "vm.html";
+									window.location.href = "/vm";
 								}
 							}); 
 	                	}else{
