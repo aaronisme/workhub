@@ -16,5 +16,5 @@ url=[
 	 (r'/data',dataHandler),
 	 (r'/vm',vmHandler),
     (r'/test',testHandler),
-    (r'/addVM',addVmHandler)z
+    (r'/addVM',addVmHandler)
 ]
