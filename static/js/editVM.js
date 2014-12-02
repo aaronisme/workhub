@@ -18,7 +18,7 @@ $(function(){
 
 	$.ajax({
 		type: "POST",
-		url: "./fake1.json",
+		url: "/data",
 		data: {"data": id, "requestType":"read","page":"vm"},
 		dataType: "json",
 		success: function(data){
