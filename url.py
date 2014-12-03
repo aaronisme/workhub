@@ -12,9 +12,14 @@ from handler.vm import vmHandler
 from handler.vm import addVmHandler
 from handler.vm import editVmHandler
 from handler.test import testHandler
+from handler.doc import docHandler
+from handler.doc import doclistHandler
+
 url=[
 	(r'/',indexHandler),
 	 (r'/data',dataHandler),
+     (r'/doc',docHandler),
+     (r'/docList', doclistHandler),
 	 (r'/vm',vmHandler),
     (r'/test',testHandler),
     (r'/addVM',addVmHandler),

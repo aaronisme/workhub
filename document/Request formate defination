@@ -1,5 +1,5 @@
 request from client to server:
-1,header:{"requestType":"read/write/update/delete","page:vm/doc...",data:"id/all/form"}
+1,header:{"requestType":"read/write/update/delete","page:vm/doc...",data:"id/all/form/category"}
 2,body:
 for write/update/delete,"data" is set to "detail" these information will be followed
 {"ip":"xxx","user":"xxx","occupied":"xxx","build":"xxx","description":"XXX"}
@@ -25,7 +25,7 @@ for datapage:
 {
     "response": True,
     "hasData": True,
-    "tabName": "id,docname,author,Date,likeNum,catageotry",
+    "tabName": "id,docname,author,Date,likeNum,category",
     "data": [
         [1, "cognos config....", "QC", "20121102", "3", "product"]
     ]

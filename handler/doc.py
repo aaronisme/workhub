@@ -12,3 +12,7 @@ sys.setdefaultencoding('utf-8')
 class docHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("doc.html")
+
+class doclistHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("docList.html")

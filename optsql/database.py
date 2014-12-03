@@ -7,16 +7,19 @@ import sys
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
-pwd = '123456'
+pwd = 'pass1234'
 
 class dbHander():
-    def getData(self, table, num):
+    def getData(self, table, data):
         conn = mysql.connector.connect(user='root', password = pwd, database='workhub')
         cur = conn.cursor()
-        if (num == 'all'):
+        if (data == 'all'):
             query = ("select * from " + table)
-        else:
-            query = ("select * from " + table + " where id = " + num)
+        elif(type(data) == type(1)):
+            query = ("select * from " + table + " where id = " + data)
+        elif(type(data) == type(u'str')):
+            query = ("select * from " + table + " where catagory = " + "'"+ data + "'")
+            print query
         try:
             print query
             cur.execute(query)
@@ -122,4 +125,12 @@ class dbHander():
                     "data": dbdata
                 }
                 return requestData
+            if(page == "doc"):
+                requestData = {
+                    "response": True,
+                    "hasData": True,
+                    "tabName": "id,url,name,owner,time,description,good,catagory",
+                    "data": dbdata
+                }
 
+                return  requestData

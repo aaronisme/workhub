@@ -18,8 +18,8 @@ $(function(){
 
 	$.ajax({
 		type: "POST",
-		url: DOCADDR,
-		data: {"requestType":"read","data": "DOC", "category":cat},
+		url: "/data",
+		data: {"requestType":"read","page": "doc", "data":cat},
 		dataType: "json",
 		success: function(data){
 			// console.log(data);	
@@ -41,10 +41,10 @@ $(function(){
               						<small>'+data.data[i][4]+'</small>\
             					</div>\
             					<div class="bar" height="35">\
-            						<img src="img/good.png" class="docGood">\
+            						<img src="static/img/good.png" class="docGood">\
             						<span class="goodNum">'+data.data[i][6]+'</span>\
               						<a href="javascript:void(0);" index="'+i+'" id="'+data.data[i][0]+'" class="del">\
-              							<img src="img/delete.png">\
+              							<img src="static/img/delete.png">\
               						</a>\
             					</div>\
           					</div>\
@@ -55,7 +55,7 @@ $(function(){
 						<div class="col-sm-6 col-md-4 col-lg-3">\
           					<div class="thumbnail addDoc" style="padding:50px; height:220px;">\
           					<a href="addDoc.html">\
-          						<img src="img/addDoc.png" width="120" height="120">\
+          						<img src="static/img/addDoc.png" width="120" height="120">\
           					</a>\
           					</div>\
         				</div>');

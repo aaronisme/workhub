@@ -4,6 +4,7 @@
 import tornado.web
 import json
 import sys
+import time
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -14,7 +15,7 @@ success = {
                 "success": True
 }
 
-fail  =  {
+fail = {
                 "response": True,
                 "success": False
 }
@@ -32,15 +33,20 @@ class dataHandler(tornado.web.RequestHandler):
                 dbdataobj = {"id":self.get_argument("id"), "ip":self.get_argument("IP"), "user": self.get_argument("User"), "occupied": self.get_argument("Occupied"), "build": self.get_argument("Build"), "description": self.get_argument("Description")}
                 print  dbdataobj
             if(requestPage == u"doc"):
-                dbdataobj = {"id":self.get_argument("id"), "docname":self.get_argument("docname"),"author":self.get_argument("author"),"date":self.get_argument("Date"),"likenum":self.get_argument("likeNum"),"catageotry":self.get_argument("catageotry")}
+
+                createdate = time.strftime('%Y/%m/%d',time.localtime(time.time()))
+                docurl = "/resource"
+                dbdataobj = {"id":self.get_argument("id"), "url":docurl,"docname":self.get_argument("Doc_Name"),"author":self.get_argument("owner"),"date":createdate,"likenum":self.get_argument("likeNum"),"catageotry":self.get_argument("catageotry")}
                 print "a"
 
         if(requestType == u"read"):
             requestData = self.get_argument("data")
             dbData = dbHander().getData(requestPage, requestData)
-            #print dbData
-            #print requestPage
+            print dbData
+            print type(requestData)
+            print requestPage
             #print dbHander().transformData(dbData, requestPage)
+            print
             clientdata = json.dumps(dbHander().transformData(dbData, requestPage))
             print clientdata
             self.write(clientdata)

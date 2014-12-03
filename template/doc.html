@@ -8,8 +8,8 @@
     <link rel="icon" type="image/png" href="static/img/icon.png">
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css" >
-    <link rel="stylesheet" type="text/css" href="static_url("css/sweet-alert.css")}}">
-    <link rel="stylesheet" type="text/css" href="{{static_url("css/doc.css")}}">
+    <link rel="stylesheet" type="text/css" href="static/css/sweet-alert.css">
+    <link rel="stylesheet" type="text/css" href="static/css/doc.css">
     <script type="text/javascript">
     //DOC后端处理地址
     var DOCADDR = "fakeDoc.json";
@@ -28,15 +28,15 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="index.html">
-            <img src="img/logo.png" width="200" height="50">
+            <img src="static/img/logo.png" width="200" height="50">
           </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="test.html" id="builds">Builds</a></li>
-            <li><a href="vm.html" id="vm">VM Plans</a></li>
-            <li><a href="doc.html" id="doc" style="color:#49b5e7">Doc</a></li>
+            <li><a href="/index">Home</a></li>
+            <li><a href="/test" id="builds">Builds</a></li>
+            <li><a href="/vm" id="vm">VM Plans</a></li>
+            <li><a href="/doc" id="doc" style="color:#49b5e7">Doc</a></li>
             <li><a href="javascript:void(0);" id="contact">Contact</a></li>
             <!-- <li><a href="javascript:void(0);" id="login">Logout</a></li> -->
           </ul>
@@ -51,10 +51,10 @@
       </div>
         <div class="col-sm-6 col-md-4 col-lg-3 ">
           <div class="thumbnail env">
-            <a href="docList.html?cat=env" title="" target="_blank">
+            <a href="/docList?cat=env" title="" target="_blank">
             <div class="caption">
               <h3>
-                <img src="img/env.png"> 
+                <img src="static/img/env.png">
               </h3>
               <h4 style="color:white">Environment</h4>
             </div>
@@ -63,10 +63,10 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 ">
           <div class="thumbnail mobile">
-            <a href="docList.html?cat=mobile" title="" target="_blank">
+            <a href="/docList?cat=mobile" title="" target="_blank">
             <div class="caption">
               <h3>
-                <img src="img/mobile.png"> 
+                <img src="static/img/mobile.png">
               </h3>
               <h4 style="color:white">Mobile</h4>
             </div>
@@ -75,10 +75,10 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 ">
           <div class="thumbnail workitem">
-            <a href="docList.html?cat=workitem" title="" target="_blank">
+            <a href="/docList?cat=workitem" title="" target="_blank">
             <div class="caption">
               <h3>
-                <img src="img/workitem.png"> 
+                <img src="static/img/workitem.png">
               </h3>
               <h4 style="color:white">WorkItem</h4>
             </div>
@@ -87,10 +87,10 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 ">
           <div class="thumbnail auto">
-            <a href="docList.html?cat=auto" title="" target="_blank">
+            <a href="/docList?cat=auto" title="" target="_blank">
             <div class="caption">
               <h3>
-                <img src="img/auto.png"> 
+                <img src="static/img/auto.png">
               </h3>
               <h4 style="color:white">Automation</h4>
             </div>
@@ -99,10 +99,10 @@
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 ">
           <div class="thumbnail other">
-            <a href="docList.html?cat=others" title="" target="_blank">
+            <a href="/docList?cat=others" title="" target="_blank">
             <div class="caption">
               <h3>
-                <img src="img/other.png"> 
+                <img src="static/img/other.png">
               </h3>
               <h4 style="color:white">Other</h4>
             </div>
@@ -115,8 +115,8 @@
         <p>Copyright © 2014 NoExcuse All Rights Reserved</p>
     </div>
 
-<script type="text/javascript" src="{{static_url("js/jquery.1.11.1.min.js")}}"></script>
-<script type="text/javascript" src="{{static_url("js/bootstrap.min.js")}}"></script>
-<script type="text/javascript" src="{{static_url("js/sweet-alert.min.js")}}"></script>
+<script type="text/javascript" src="static/js/jquery.1.11.1.min.js"></script>
+<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="static/js/sweet-alert.min.js"></script>
 </body>
 </html>
