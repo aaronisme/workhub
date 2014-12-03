@@ -38,8 +38,8 @@ class dataHandler(tornado.web.RequestHandler):
                 docurl = "/resource"
                 dbdataobj = {"id":self.get_argument("id"), "url":docurl,"docname":self.get_argument("Doc_Name"),"author":self.get_argument("owner"),"date":createdate,"likenum":self.get_argument("likeNum"),"catageotry":self.get_argument("catageotry")}
                 print "a"
-            if(requestData == u"likenum"):
-                dbdataobj = {id:self.get_argument("id"),"likenum":self.get_argument("likenum")}
+        if(requestData == u"likenum"):
+            dbdataobj = {id:self.get_argument("id"),"likenum":self.get_argument("likenum")}
 
         if(requestType == u"read"):
             requestData = self.get_argument("data")
