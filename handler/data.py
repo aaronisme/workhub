@@ -26,7 +26,7 @@ class dataHandler(tornado.web.RequestHandler):
         requestType = self.get_argument("requestType")
         requestPage = self.get_argument("page")
         requestData = self.get_argument("data")
-        requestIp = "9.110.94.12"
+        requestIp = self.request.remote_ip
         if (requestData == u"form"):
             if(requestPage == u"vm"):
                 print requestData
@@ -38,6 +38,8 @@ class dataHandler(tornado.web.RequestHandler):
                 docurl = "/resource"
                 dbdataobj = {"id":self.get_argument("id"), "url":docurl,"docname":self.get_argument("Doc_Name"),"author":self.get_argument("owner"),"date":createdate,"likenum":self.get_argument("likeNum"),"catageotry":self.get_argument("catageotry")}
                 print "a"
+            if(requestData == u"likenum"):
+                dbdataobj = {id:self.get_argument("id"),"likenum":self.get_argument("likenum")}
 
         if(requestType == u"read"):
             requestData = self.get_argument("data")
@@ -67,7 +69,7 @@ class dataHandler(tornado.web.RequestHandler):
                 iplist = json.load(fileobj)
                 fileobj.close()
                 print type(iplist)
-                dbdataobj={"id":1, "likenum":3}
+                #dbdataobj={"id":1, "likenum":3}
                 doclikelist = iplist["log"]
                 for i in range(0,len(doclikelist)):
                     if(dbdataobj["id"] == doclikelist[i]["docid"]):

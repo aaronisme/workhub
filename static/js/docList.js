@@ -98,10 +98,11 @@ $(function(){
 	$("#DocContent").delegate(".docGood", "click", function(){
 		$self = $(this);
         $id = $(this).next().next().attr("id");
+        $num =$(this.).next().next("div.goodNum").text();
 		$.ajax({
 			type:"POST",
-			url:DOCADDR,
-			data:{ "data": $id},
+			url:/data,
+			data:{ "data":"likenum","id": $id,"likenum":$num},
 			dataType:"json",
 			success: function(data){
 				if ( data.response==true ) {

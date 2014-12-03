@@ -7,7 +7,7 @@ import sys
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
-pwd = 'pass1234'
+pwd = '123456'
 
 class dbHander():
     def getData(self, table, data):
@@ -15,9 +15,9 @@ class dbHander():
         cur = conn.cursor()
         if (data == 'all'):
             query = ("select * from " + table)
-        elif(type(data) == type(1)):
+        elif(data >=u'\u0030' and data<=u'\u0039'):
             query = ("select * from " + table + " where id = " + data)
-        elif(type(data) == type(u'str')):
+        else:
             query = ("select * from " + table + " where catagory = " + "'"+ data + "'")
             print query
         try:
