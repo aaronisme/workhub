@@ -2,7 +2,7 @@ $(function(){
 
     $.ajax({
         type: "GET",
-        url: DATA,
+        url: "static/resource/build.json",
         dataType: "json",
         success: function(data){
             $("#select").select2({
@@ -17,6 +17,6 @@ $(function(){
     $("#select").change(function(){
         var value = $("#select").select2("data")['text'];
         //跳转新页面
-        window.open("./"+value+".txt");
+        window.open("static/resource/"+value+".txt");
     });
 });

@@ -7,7 +7,7 @@ import sys
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
-pwd = '123456'
+pwd = 'pass1234'
 
 class dbHander():
     def getData(self, table, data):

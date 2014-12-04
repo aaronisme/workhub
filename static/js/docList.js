@@ -87,7 +87,17 @@ $(function(){
 					closeOnCancel: true }, 
 					function(isConfirm){   
 						if (isConfirm) {     
-							window.location.href = DOCDELADDR+"?requestType=delete&page=doc&data="+$id;
+						    $.ajax({
+		                                  type: "POST",
+		                                  url: "/data",
+                                          data: {"data": $id, "requestType":"delete","page":"doc"},
+                                          dataType: "json",
+                                          success: function(data){
+                                                if(data.response == true && data.success == true){
+                                                    window.location.href = "/doc";
+                                                }
+                                          }
+                            });
 						} 
 					});
 			});
@@ -98,11 +108,11 @@ $(function(){
 	$("#DocContent").delegate(".docGood", "click", function(){
 		$self = $(this);
         $id = $(this).next().next().attr("id");
-        $num =$(this.).next().next("div.goodNum").text();
+        $num =$(this).next().text();
 		$.ajax({
 			type:"POST",
-			url:/data,
-			data:{ "data":"likenum","id": $id,"likenum":$num},
+			url:"/data",
+			data:{ "requestType":"update","page":"doc","data":"likenum","id": $id,"likenum":$num},
 			dataType:"json",
 			success: function(data){
 				if ( data.response==true ) {

@@ -11,7 +11,7 @@ from handler.data import dataHandler
 from handler.vm import vmHandler
 from handler.vm import addVmHandler
 from handler.vm import editVmHandler
-from handler.test import testHandler
+from handler.build import buildHandler
 from handler.doc import docHandler
 from handler.doc import doclistHandler
 
@@ -21,7 +21,7 @@ url=[
      (r'/doc',docHandler),
      (r'/docList', doclistHandler),
 	 (r'/vm',vmHandler),
-    (r'/test',testHandler),
+    (r'/build',buildHandler),
     (r'/addVM',addVmHandler),
     (r'/editVM',editVmHandler)
 ]

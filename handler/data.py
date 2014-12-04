@@ -39,7 +39,8 @@ class dataHandler(tornado.web.RequestHandler):
                 dbdataobj = {"id":self.get_argument("id"), "url":docurl,"docname":self.get_argument("Doc_Name"),"author":self.get_argument("owner"),"date":createdate,"likenum":self.get_argument("likeNum"),"catageotry":self.get_argument("catageotry")}
                 print "a"
         if(requestData == u"likenum"):
-            dbdataobj = {id:self.get_argument("id"),"likenum":self.get_argument("likenum")}
+            dbdataobj = {"id":self.get_argument("id"),"likenum":self.get_argument("likenum")}
+            print dbdataobj
 
         if(requestType == u"read"):
             requestData = self.get_argument("data")
@@ -65,22 +66,25 @@ class dataHandler(tornado.web.RequestHandler):
 
         if(requestType == u"update"):
             if(requestPage == u"doc"):
+                print requestIp
                 fileobj = open('temp/text.json', 'r')
                 iplist = json.load(fileobj)
                 fileobj.close()
                 print type(iplist)
-                #dbdataobj={"id":1, "likenum":3}
+
                 doclikelist = iplist["log"]
                 for i in range(0,len(doclikelist)):
-                    if(dbdataobj["id"] == doclikelist[i]["docid"]):
+                    if(int(dbdataobj["id"]) == doclikelist[i]["docid"]):
                         dociplist = doclikelist[i]["IP"]
-                        if(dbdataobj["likenum"] != len(dociplist)):
+                        if(int(dbdataobj["likenum"]) != len(dociplist)):
                             if(requestIp in dociplist):
                                 # send to client
                                 self.write({"result":"fail"})
                                 return
                             else:
                                 dociplist.append(requestIp)
+                                dbdataobjtemp = int(dbdataobj["likenum"]) + 1
+                                dbdataobj["likenum"] = str(dbdataobjtemp)
                                 print dociplist
                                 print iplist
                                 fileobj = open('temp/text.json', 'w')

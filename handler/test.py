@@ -11,7 +11,7 @@ sys.setdefaultencoding('utf-8')
 
 class testHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render("test.html")
+        self.render("build.html")
 
     def post(self):
         data = self.get_argument("name")
