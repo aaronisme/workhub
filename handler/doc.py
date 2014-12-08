@@ -16,3 +16,7 @@ class docHandler(tornado.web.RequestHandler):
 class doclistHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("docList.html")
+
+class addDocHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("addDoc.html")

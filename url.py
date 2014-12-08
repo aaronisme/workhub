@@ -14,6 +14,7 @@ from handler.vm import editVmHandler
 from handler.build import buildHandler
 from handler.doc import docHandler
 from handler.doc import doclistHandler
+from handler.doc import addDocHandler
 
 url=[
 	(r'/',indexHandler),
@@ -23,5 +24,6 @@ url=[
 	 (r'/vm',vmHandler),
     (r'/build',buildHandler),
     (r'/addVM',addVmHandler),
+    (r'/addDoc',addDocHandler),
     (r'/editVM',editVmHandler)
 ]
