@@ -73,6 +73,7 @@ class dataHandler(tornado.web.RequestHandler):
                 print type(iplist)
 
                 doclikelist = iplist["log"]
+
                 for i in range(0,len(doclikelist)):
                     if(int(dbdataobj["id"]) == doclikelist[i]["docid"]):
                         dociplist = doclikelist[i]["IP"]
@@ -90,6 +91,14 @@ class dataHandler(tornado.web.RequestHandler):
                                 fileobj = open('temp/text.json', 'w')
                                 json.dump(iplist, fileobj)
                                 fileobj.close()
+
+                newAdddoc = {"docid":int(dbdataobj["id"]),"IP":[requestIp]}
+                doclikelist.append(newAdddoc)
+                dbdataobjtemp = int(dbdataobj["likenum"]) + 1
+                dbdataobj["likenum"] = str(dbdataobjtemp)
+                fileobj = open('temp/text.json', 'w')
+                json.dump(iplist, fileobj)
+                fileobj.close()
 
             result = dbHander().updateData(requestPage, dbdataobj)
             if(result == True):
