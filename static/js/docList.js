@@ -54,7 +54,7 @@ $(function(){
 				$("#DocContent").append('\
 						<div class="col-sm-6 col-md-4 col-lg-3">\
           					<div class="thumbnail addDoc" style="padding:50px; height:220px;">\
-          					<a href="addDoc.html">\
+          					<a href="addDoc?cat='+cat+'">\
           						<img src="static/img/addDoc.png" width="120" height="120">\
           					</a>\
           					</div>\

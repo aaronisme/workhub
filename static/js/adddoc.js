@@ -1,6 +1,23 @@
 $(function(){
 
-    $("#UFdiv").hide();
+    var addr = window.location.search;
+    function GetRequest(addr) {
+        var url = addr;
+        var theRequest = new Object();
+        if(url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for(var i = 0; i < strs.length; i++) {
+                theRequest[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+    var Request = new Object();
+    Request = GetRequest(addr);
+    var cat = Request["cat"];
+
+    /*$("#UFdiv").hide();
     $("#LA").click(function(event) {
         $("#UFdiv").hide();
         $("#LAdiv").show();
@@ -8,8 +25,10 @@ $(function(){
     $("#UF").click(function(event) {
         $("#UFdiv").show();
         $("#LAdiv").hide();
-    });
+    });*/
 
+    $("#inputCat").val(cat);
+    $("#addDocSubmit").next().attr("href",("/docList?cat=" + cat))
     uploadbutton = $("#addDocSubmit");
 
       $('#fileupload').fileupload({
@@ -18,32 +37,52 @@ $(function(){
           autoUpload:false,
           dataType: 'json',
           done: function (e, data) {
-              if ( data.result.response==true ) {
-                  $("#uploadId").val(data.result.uploadId);
+              console.log(data);
+              if(data.result.response == true && data.result.success == true){
+                  swal({
+                        title:"Successfully!",
+                        type:"success",
+                        showCancelButton:false,
+                        confirmButtonColor:"#AEDEF4",
+                        confirmButtonText:"OK",
+                        closeOnConfirm:false
+                        },
+                        function(isConfirm){
+						    if (isConfirm) {
+							    window.location.href = "/docList?cat=" + cat;
+						}
+        				});
               }else{
-                  sweetAlert("Oops...", "Upload Failed!", "error");
-              };
+                  swal({
+                        title:"failed",
+                        type:"error",
+                        showCancelButton:false,
+                        confirmButtonColor:"#AEDEF4",
+                        confirmButtonText:"OK",
+                        closeOnConfirm:true
+                       });
+              }
         }
     }).on('fileuploadadd', function (e, data) {
-        uploadbutton.data = data
-
+        uploadbutton.data = data;
+        $("#inputName").val(data.files[0].name);
     });
-
 
 
 
     uploadbutton.on('click',function(){
-        data = uploadbutton.data;
-        data.submit().always(function () {
-            $this.remove();
-        });
+
+        if ( (trim($("#inputName").val())=="") || (trim($("#inputOwner").val())=="") ) {
+                sweetAlert("Sorry", "Upload File,Doc Name and Owner should not be empty!", "error");
+            }else{
+                    var data = uploadbutton.data;
+                    data.submit();
+            };
+
+
     });
 
 
-    function sendInfo(){
-        var $this = $(this),
-        data = $this.data();
-    }
 
     //删除左右两端的空格
     function trim(str){

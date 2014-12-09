@@ -25,21 +25,21 @@
                     <div class="form-group">
                         <label for="exampleInuptName" class="col-sm-3 control-label">Upload Type</label>
                         <div class="col-sm-9">
-                            <label for="LA" style="margin-right:20px;">
-                                <input id="LA" type="radio" name="type" value="link" checked>Link Addr
-                            </label>
+                            <!--<label for="LA" style="margin-right:20px;">
+                                <input id="LA" type="radio" name="type" value="link" disabled>Link Addr
+                            </label>-->
                             <label for="UF">
-                                <input id="UF" type="radio" name="type" value="file">Upload File
+                                <input id="UF" type="radio" name="type" value="file" checked>Upload File
                             </label>
                         </div>
                     </div>
 
-                    <div id="LAdiv" class="form-group">
+                    <!--<div id="LAdiv" class="form-group">
                         <label for="exampleInuptName" class="col-sm-3 control-label">Link Addr</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="inputLink" name="Link_Addr">
                         </div>
-                    </div>
+                    </div>-->
 
                     <div id="UFdiv" class="form-group">
                         <label for="exampleInuptName" class="col-sm-3 control-label">Add File</label>
@@ -47,7 +47,7 @@
                             <span class="btn btn-info fileinput-button form-control">
                                 <span>Upload File</span>
                                 <input id="fileupload" type="file" name="files[]">
-                                <input type="hidden" class="form-control" id="uploadId" name="uploadId" value="">
+                                <!--<input type="hidden" class="form-control" id="uploadId" name="uploadId" value="">-->
                             </span>
                         </div>
                     </div>
@@ -79,10 +79,13 @@
                     <div class="form-group">
                             <input type="text" class="form-control" name="data" value="form" style="display:none;">
                     </div>
+                     <div class="form-group">
+                        <input type="hidden" class="form-control" name="Catgory" id="inputCat">
+                    </div>
                     <div class="form-group">
                         <div class="twoBtn">
                             <button type="button" id="addDocSubmit" class="btn btn-primary" style="width:71px;">OK</button>
-                            <a class="btn btn-primary" href="doc.html">Cancel</a>
+                            <a class="btn btn-primary" href="/doc">Cancel</a>
                         </div>
                     </div>
                   </form>
@@ -97,5 +100,5 @@
     <script type="text/javascript" src="static/js/jquery.ui.widget.js"></script>
     <script type="text/javascript" src="static/js/jquery.fileupload.js"></script>
 
-    <script type="text/javascript" src="static/js/addDoc.js"></script>
+    <script type="text/javascript" src="static/js/adddoc.js"></script>
 </body>

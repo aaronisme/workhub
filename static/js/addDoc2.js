@@ -30,20 +30,33 @@ $(function(){
     });
 
 
-
-
     uploadbutton.on('click',function(){
+
+        if ( $("#LA")[0].checked ) {
+            if ( (trim($("#inputLink").val())=="") || (trim($("#inputName").val())=="") || (trim($("#inputOwner").val())=="") ) {
+                sweetAlert("Sorry", "Link Addr,Doc Name and Owner should not be empty!", "error");
+            }else{
+
+                data = uploadbutton.data;
+                data.submit();
+            };
+        };
+        if ( $("#UF")[0].checked ) {
+            if ( (trim($("#uploadId").val())=="") || (trim($("#inputName").val())=="") || (trim($("#inputOwner").val())=="") ) {
+                sweetAlert("Sorry", "Upload File,Doc Name and Owner should not be empty!", "error");
+            }else{
+                 data = uploadbutton.data;
+                 data.submit();
+            };
+        };
+
+
+
+
         data = uploadbutton.data;
-        data.submit().always(function () {
-            $this.remove();
-        });
+        data.submit();
     });
 
-
-    function sendInfo(){
-        var $this = $(this),
-        data = $this.data();
-    }
 
     //删除左右两端的空格
     function trim(str){ 
