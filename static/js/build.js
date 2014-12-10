@@ -2,7 +2,7 @@ $(function(){
 
     $.ajax({
         type: "GET",
-        url: "static/resource/build.json",
+        url: "static/resource/build/installog.json",
         dataType: "json",
         success: function(data){
             $("#select").select2({
@@ -17,6 +17,6 @@ $(function(){
     $("#select").change(function(){
         var value = $("#select").select2("data")['text'];
         //跳转新页面
-        window.open("static/resource/"+value+".txt");
+        window.open("static/resource/build/"+value+".txt");
     });
 });
