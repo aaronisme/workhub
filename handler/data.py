@@ -35,7 +35,7 @@ class dataHandler(tornado.web.RequestHandler):
             if(requestPage == u"doc"):
 
                 createdate = time.strftime('%Y/%m/%d',time.localtime(time.time()))
-                docname = str(self.get_argument("Doc_Name")).partition('.')[0].decode()
+                #docname = str(self.get_argument("Doc_Name")).partition('.')[0].decode()
                 filelist = self.request.files['files[]'][0]
                 filename = filelist["filename"]
 
@@ -43,7 +43,7 @@ class dataHandler(tornado.web.RequestHandler):
                 newfileobj = open(docurl, 'wb')
                 newfileobj.write(filelist["body"])
                 newfileobj.close()
-                dbdataobj = {"id":"fake","url":docurl,"name":docname,"owner":self.get_argument("Owner"),"time":createdate,"description":self.get_argument("Description"),"likenum":u'0', "catagory":self.get_argument("Catgory")}
+                dbdataobj = {"id":"fake","url":docurl,"name":self.get_argument("Doc_Name"),"owner":self.get_argument("Owner"),"time":createdate,"description":self.get_argument("Description"),"likenum":u'0', "catagory":self.get_argument("Catgory")}
                 print "a"
         if(requestData == u"likenum"):
             dbdataobj = {"id":self.get_argument("id"),"likenum":self.get_argument("likenum")}

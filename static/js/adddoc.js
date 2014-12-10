@@ -65,7 +65,7 @@ $(function(){
         }
     }).on('fileuploadadd', function (e, data) {
         uploadbutton.data = data;
-        $("#inputName").val(data.files[0].name);
+        $("#inputName").val(data.files[0].name.split(".")[0]);
     });
 
 
