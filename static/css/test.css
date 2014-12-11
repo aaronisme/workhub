@@ -1,19 +1,17 @@
 html, body{
 	height: 100%;
+    margin: 0;
+    padding: 0;
+    min-width: 700px;
+    min-height: 490px;
 }
 
 .s2container{
 	height: 100%;
-	min-height: 490px;
-	padding-bottom: 72px;	
-	/*height: 400px;*/
+    margin-top: 0px;
+    padding-top: 81px;
+    margin-bottom: -72px;
 	width: 100%;
-	 display: -moz-box;
-    display: -webkit-box;
-    -moz-box-align:center;
-    -webkit-box-align:center;
-    -moz-box-pack:center;
-    -webkit-box-pack:center;
 }
 
 .stella{
@@ -24,6 +22,9 @@ background-position: center center;
 text-align: center;
 height: 200px;
 padding-top: 180px;
+position: relative;
+top:50%;
+margin-top:-181px;
 }
 
 /* modified bootstrap css */
@@ -46,16 +47,10 @@ padding-top: 180px;
 
 .footer{
 position: relative;
-top: -72px;
+bottom: 0px;
 height: 72px;
 background-color: #2B3033;
 text-align: center;
-display: -moz-box;
-display: -webkit-box;
--moz-box-align:center;
--webkit-box-align:center;
--moz-box-pack:center;
--webkit-box-pack:center;
 }
 
 .footer p{
@@ -63,4 +58,5 @@ font-size: 12px;
 color: #778489;
 height: 20px;
 margin: 0 auto;
+line-height: 6;
 }

@@ -51,73 +51,38 @@
 .home .text p{
     padding-right: 100px;
 }
-.team{
-    background-color: #fff;
-    padding:0 150px;
-}
-.team h1{
-    text-align: center;
-    margin: 30px 0; 
-}
-.team p{
-    text-align: center;
-    margin: 30px 0 60px 0; 
-}
-.team .person{
-    text-align: center;
-
-}
-.team .person .one{
-    margin: 30px 0;
-}
-
-.team .person .two{
-    padding: 0 70px;
-}
 .contact{
     /*background-color: #000;*/
     background: url(../img/cbg.jpg) repeat;
-    padding:20px 280px;
+    padding:16px 180px;
 }
-.contact h1{
+.contact h2{
     color:#fff;
     text-align: center;
-    margin: 30px 0; 
+    margin: 30px 0;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 .contact p{
     color:#fff;
     text-align: center;
-    margin: 30px 0 60px 0;
+    margin: 24px 0 60px 0;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 .contact .reach{
     text-align: center;
 }
 .contact h3{
-    line-height: 40px;
+    line-height: 36px;
     color:#fff;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
-
-.footer{
-height: 72px;
-background-color: #2B3033;
-text-align: center;
-display: -moz-box;
-display: -webkit-box;
--moz-box-align:center;
--webkit-box-align:center;
--moz-box-pack:center;
--webkit-box-pack:center;
-}
-
-
-.footer p{
-font-size: 12px;
-color: #778489;
-height: 20px;
-width: 600px;
-margin: 0 auto;
-}
-
 /*carousel*/
 .carouselStyle{
  margin: 81px 0px 0px 0px;
@@ -139,4 +104,65 @@ background-repeat: no-repeat;
 
 .carousel-control {
 width: 30%;
+}
+
+.footer {
+    height: 72px;
+    background-color: #2B3033;
+    text-align: center;
+}
+.footer p {
+    color: #778489;
+    display: block;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 34px;
+}
+
+.intro {
+    background: #515d81 url(../img/intro_bg.jpg) no-repeat center top;
+    background-size: cover;
+    overflow: hidden;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    padding:52px 0 20px;
+    text-align: center;
+}
+.intro h2 {
+    margin-top: 0;
+    font-size: 42px;
+    font-weight: 300;
+    color: #fff;
+    margin: 20px 0 32px;
+    padding: 0;
+    letter-spacing: 1px;
+}
+.features {
+    text-align: center;
+    padding:70px 0 80px;
+    background-color: #f5f6f6;
+}
+.arrow {
+    background: url(../img/h1-bg.png) no-repeat scroll center bottom transparent;
+    color: #353535;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding-bottom: 30px;
+    text-transform: uppercase;
+}
+.feature-wrapper {
+    margin:70px 0 0;
+}
+.feature-wrapper h3 {
+    color: #353535;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+.feature-wrapper p {
+    color: #8C9398;
+    font-size: 14px;
+    line-height: 25px;
+    word-spacing: 1px;
 }
