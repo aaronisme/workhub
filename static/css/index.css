@@ -153,6 +153,9 @@ width: 30%;
 .feature-wrapper {
     margin:70px 0 0;
 }
+.feature-wrapper a {
+    text-decoration: none;
+}
 .feature-wrapper h3 {
     color: #353535;
     font-size: 15px;
