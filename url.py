@@ -24,7 +24,7 @@ url=[
      (r'/docList', doclistHandler),
 	 (r'/vm',vmHandler),
     (r'/build',buildHandler),
-    (r'/buildList',buildHandler),
+    (r'/buildList',buildListHandler),
     (r'/addVM',addVmHandler),
     (r'/addDoc',addDocHandler),
     (r'/editVM',editVmHandler)
