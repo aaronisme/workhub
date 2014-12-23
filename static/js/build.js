@@ -9,7 +9,7 @@ $(function(){
                 width: 618,
                 placeholder: "The first one in the dropdown list is the latest kit ",
                 allowClear: true,
-                data: data
+                data: data.result
             });
         }
     });

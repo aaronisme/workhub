@@ -17,4 +17,4 @@ class buildListHandler(tornado.web.RequestHandler):
         fileobj = open('static/build/installog.json', 'r')
         buildlist = json.load(fileobj)
         fileobj.close()
-        self.write(buildlist)
+        self.write({"result":buildlist})
