@@ -2,7 +2,7 @@ $(function(){
 
     $.ajax({
         type: "GET",
-        url: "static/build/installog.json",
+        url: "/buildList",
         dataType: "json",
         success: function(data){
             $("#select").select2({
